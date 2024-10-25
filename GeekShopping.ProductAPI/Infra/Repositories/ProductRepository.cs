@@ -43,9 +43,9 @@ namespace GeekShopping.ProductAPI.Infra.Repositories
             return _mapper.Map<ProductResponse>(product);
         }
 
-        public async Task<ProductResponse> Update(Guid id, ProductRequest request)
+        public async Task<ProductResponse> Update(ProductRequest request)
         {
-            Product product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync();
+            Product product = await _context.Products.Where(p => p.Id == request.Id).FirstOrDefaultAsync();
 
             if(product == null)
             {

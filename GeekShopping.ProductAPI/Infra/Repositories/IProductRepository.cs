@@ -7,7 +7,7 @@ namespace GeekShopping.ProductAPI.Infra.Repositories
         Task<ProductResponse> Create(ProductRequest request);
         Task<IEnumerable<ProductResponse>> FindAll();
         Task<ProductResponse> FindById(Guid id);        
-        Task<ProductResponse> Update(Guid id,ProductRequest request);
+        Task<ProductResponse> Update(ProductRequest request);
         Task<Guid> Delete(Guid id);
 
     }

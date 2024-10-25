@@ -53,11 +53,11 @@ namespace GeekShopping.ProductAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IResult> Update([FromQuery]Guid id, [FromBody] ProductRequest request)
+        public async Task<IResult> Update([FromBody] ProductRequest request)
         {
             try
             {
-                var response = await _repository.Update(id, request);
+                var response = await _repository.Update(request);
 
                 return Results.Ok(response);
             }
