@@ -38,13 +38,13 @@ namespace GeekShopping.ProductAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IResult> Create(ProductRequest request)
+        public async Task<IResult> Create([FromBody] ProductRequest request)
         {
             try
             {
                 var response = await _repository.Create(request);
 
-                return Results.Created($"/product/${response.Id}", response.Id);
+                return Results.Ok(response);
             }
             catch(Exception ex)
             {
@@ -53,7 +53,7 @@ namespace GeekShopping.ProductAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IResult> Update(Guid id, ProductRequest request)
+        public async Task<IResult> Update([FromQuery]Guid id, [FromBody] ProductRequest request)
         {
             try
             {
