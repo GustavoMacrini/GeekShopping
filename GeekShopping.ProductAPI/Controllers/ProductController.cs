@@ -67,13 +67,13 @@ namespace GeekShopping.ProductAPI.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IResult> Delete(Guid id)
         {
             try
             {
                 var result = await _repository.Delete(id);
-                return Results.Ok($"Product {result} has been Deleted");
+                return Results.Ok(result);
             }
             catch(Exception ex)
             {
